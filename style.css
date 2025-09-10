@@ -1,0 +1,166 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f2f2f7;
+    color: #333;
+}
+
+h1 {
+    text-align: center;
+    margin: 20px 0;
+    font-weight: 600;
+}
+
+.panel {
+    width: 90%;
+    max-width: 700px;
+    margin: 10px auto;
+    display: flex;
+    gap: 10px;
+    background: #ffffff;
+    padding: 14px 18px;
+    border-radius: 14px;
+    box-shadow: 0 6px 25px rgba(0,0,0,0.08);
+    align-items: center;
+}
+
+.panel input {
+    flex: 1;
+    padding: 10px 14px;
+    border: 1px solid #d0d0d0;
+    border-radius: 12px;
+    font-size: 16px;
+    outline: none;
+    transition: 0.3s;
+}
+
+.panel input:focus {
+    border-color: #0078d4;
+    box-shadow: 0 0 6px rgba(0,120,212,0.2);
+}
+
+.panel button {
+    padding: 10px 16px;
+    border-radius: 12px;
+    border: none;
+    background: linear-gradient(135deg, #0078d4, #005ea3);
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.12);
+}
+
+.panel button:hover {
+    background: linear-gradient(135deg, #005ea3, #004780);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.18);
+}
+
+/* Контейнер карты */
+#map-container {
+    width: 90%;
+    height: 500px;
+    margin: 10px auto;
+    position: relative;
+    border-radius: 14px;
+    box-shadow: 0 6px 25px rgba(0,0,0,0.12);
+    overflow: hidden;
+}
+
+/* Карта */
+#map {
+    width: 100%;
+    height: 100%;
+    border-radius: 14px;
+}
+
+/* Ручки для ресайза */
+.resizer {
+    position: absolute;
+    background: rgba(0,0,0,0.0);
+    z-index: 2;
+}
+
+/* стороны */
+.resizer.top, .resizer.bottom {
+    height: 10px;
+    width: 100%;
+    cursor: ns-resize;
+}
+.resizer.left, .resizer.right {
+    width: 10px;
+    height: 100%;
+    cursor: ew-resize;
+}
+
+/* углы */
+.resizer.topleft, .resizer.topright, .resizer.bottomleft, .resizer.bottomright {
+    width: 12px;
+    height: 12px;
+    cursor: nwse-resize;
+}
+
+/* позиционирование */
+.resizer.top { top: -5px; left: 0; }
+.resizer.bottom { bottom: -5px; left: 0; }
+.resizer.left { top: 0; left: -5px; }
+.resizer.right { top: 0; right: -5px; }
+.resizer.topleft { top: -6px; left: -6px; }
+.resizer.topright { top: -6px; right: -6px; }
+.resizer.bottomleft { bottom: -6px; left: -6px; }
+.resizer.bottomright { bottom: -6px; right: -6px; }
+
+/* Список наборов */
+.sets-list {
+    width: 90%;
+    max-width: 320px;
+    margin: 10px auto 20px auto;
+    padding: 12px;
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: 0 6px 25px rgba(0,0,0,0.08);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.sets-list button {
+    padding: 10px 12px;
+    border-radius: 10px;
+    border: 1px solid #0078d4;
+    background: #fff;
+    color: #0078d4;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.sets-list button:hover {
+    background: #0078d4;
+    color: #fff;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.sets-list .delete-set {
+    background: #ff4d4d;
+    border: 1px solid #d93636;
+    color: #fff;
+}
+
+.sets-list .delete-set:hover {
+    background: #d93636;
+}
+
+.sets-list.hidden {
+    display: none;
+}
+
+/* Адаптивность */
+@media (max-width: 600px) {
+    #map-container, .panel, .sets-list {
+        width: 95%;
+    }
+}
