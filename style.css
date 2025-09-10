@@ -1,3 +1,4 @@
+/* --- Общий стиль --- */
 body, html {
     margin: 0;
     padding: 0;
@@ -12,9 +13,10 @@ h1 {
     font-weight: 600;
 }
 
+/* --- Панель управления --- */
 .panel {
     width: 90%;
-    max-width: 700px;
+    max-width: 800px;
     margin: 10px auto;
     display: flex;
     gap: 10px;
@@ -58,7 +60,7 @@ h1 {
     box-shadow: 0 6px 15px rgba(0,0,0,0.18);
 }
 
-/* Контейнер карты */
+/* --- Карта --- */
 #map-container {
     width: 90%;
     height: 500px;
@@ -69,53 +71,34 @@ h1 {
     overflow: hidden;
 }
 
-/* Карта */
 #map {
     width: 100%;
     height: 100%;
     border-radius: 14px;
 }
 
-/* Ручки для ресайза */
+/* --- Ручки ресайза --- */
 .resizer {
     position: absolute;
     background: rgba(0,0,0,0.0);
     z-index: 2;
 }
+.resizer.top, .resizer.bottom { height:10px; width:100%; cursor: ns-resize;}
+.resizer.left, .resizer.right { width:10px; height:100%; cursor: ew-resize;}
+.resizer.topleft, .resizer.topright, .resizer.bottomleft, .resizer.bottomright { width:12px; height:12px; cursor: nwse-resize; }
+.resizer.top { top:-5px; left:0; }
+.resizer.bottom { bottom:-5px; left:0; }
+.resizer.left { top:0; left:-5px; }
+.resizer.right { top:0; right:-5px; }
+.resizer.topleft { top:-6px; left:-6px; }
+.resizer.topright { top:-6px; right:-6px; }
+.resizer.bottomleft { bottom:-6px; left:-6px; }
+.resizer.bottomright { bottom:-6px; right:-6px; }
 
-/* стороны */
-.resizer.top, .resizer.bottom {
-    height: 10px;
-    width: 100%;
-    cursor: ns-resize;
-}
-.resizer.left, .resizer.right {
-    width: 10px;
-    height: 100%;
-    cursor: ew-resize;
-}
-
-/* углы */
-.resizer.topleft, .resizer.topright, .resizer.bottomleft, .resizer.bottomright {
-    width: 12px;
-    height: 12px;
-    cursor: nwse-resize;
-}
-
-/* позиционирование */
-.resizer.top { top: -5px; left: 0; }
-.resizer.bottom { bottom: -5px; left: 0; }
-.resizer.left { top: 0; left: -5px; }
-.resizer.right { top: 0; right: -5px; }
-.resizer.topleft { top: -6px; left: -6px; }
-.resizer.topright { top: -6px; right: -6px; }
-.resizer.bottomleft { bottom: -6px; left: -6px; }
-.resizer.bottomright { bottom: -6px; right: -6px; }
-
-/* Список наборов */
-.sets-list {
+/* --- Списки --- */
+.sets-list, .comments-list {
     width: 90%;
-    max-width: 320px;
+    max-width: 350px;
     margin: 10px auto 20px auto;
     padding: 12px;
     background: #fff;
@@ -126,7 +109,9 @@ h1 {
     gap: 10px;
 }
 
-.sets-list button {
+.sets-list.hidden, .comments-list.hidden { display: none; }
+
+.sets-list button, .comments-list button {
     padding: 10px 12px;
     border-radius: 10px;
     border: 1px solid #0078d4;
@@ -136,31 +121,11 @@ h1 {
     cursor: pointer;
     transition: all 0.3s ease;
 }
+.sets-list button:hover, .comments-list button:hover { background:#0078d4; color:#fff; }
+.sets-list .delete-set, .comments-list .delete-comment { background:#ff4d4d; border:1px solid #d93636; color:#fff; }
+.sets-list .delete-set:hover, .comments-list .delete-comment:hover { background:#d93636; }
 
-.sets-list button:hover {
-    background: #0078d4;
-    color: #fff;
-    transform: translateY(-1px);
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-}
-
-.sets-list .delete-set {
-    background: #ff4d4d;
-    border: 1px solid #d93636;
-    color: #fff;
-}
-
-.sets-list .delete-set:hover {
-    background: #d93636;
-}
-
-.sets-list.hidden {
-    display: none;
-}
-
-/* Адаптивность */
-@media (max-width: 600px) {
-    #map-container, .panel, .sets-list {
-        width: 95%;
-    }
+/* --- Адаптив --- */
+@media (max-width: 600px){
+    #map-container, .panel, .sets-list, .comments-list { width:95%; }
 }
