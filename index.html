@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Карта с маркерами</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
+</head>
+<body>
+
+<h1>Карта с маркерами</h1>
+
+<div class="panel">
+    <input type="text" id="setName" placeholder="Имя набора">
+    <button id="saveBtn">Сохранить набор</button>
+</div>
+
+<div id="map-container">
+    <div id="map"></div>
+    <!-- ручки для ресайза -->
+    <div class="resizer top"></div>
+    <div class="resizer bottom"></div>
+    <div class="resizer left"></div>
+    <div class="resizer right"></div>
+    <div class="resizer topleft"></div>
+    <div class="resizer topright"></div>
+    <div class="resizer bottomleft"></div>
+    <div class="resizer bottomright"></div>
+</div>
+
+<div class="sets-list hidden" id="setsList"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
