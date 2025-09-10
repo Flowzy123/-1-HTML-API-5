@@ -2,22 +2,24 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Карта с маркерами</title>
+    <title>Карта и Геолокация</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
 </head>
 <body>
 
-<h1>Карта с маркерами</h1>
+<h1>Геолокация и Карта с маркерами</h1>
 
+<!-- Панель управления -->
 <div class="panel">
-    <input type="text" id="setName" placeholder="Имя набора">
-    <button id="saveBtn">Сохранить набор</button>
+    <button id="getLocation">Определить местоположение</button>
+    <input type="text" id="comment" placeholder="Комментарий">
+    <button id="saveLocal">Сохранить</button>
 </div>
 
+<!-- Контейнер карты с ручками для ресайза -->
 <div id="map-container">
     <div id="map"></div>
-    <!-- ручки для ресайза -->
     <div class="resizer top"></div>
     <div class="resizer bottom"></div>
     <div class="resizer left"></div>
@@ -28,7 +30,14 @@
     <div class="resizer bottomright"></div>
 </div>
 
+<!-- Список сохраненных наборов -->
 <div class="sets-list hidden" id="setsList"></div>
+
+<!-- LocalStorage комментарии -->
+<div class="comments-list hidden" id="localComments"></div>
+
+<!-- IndexedDB комментарии -->
+<div class="comments-list hidden" id="indexedComments"></div>
 
 <script src="script.js"></script>
 </body>
